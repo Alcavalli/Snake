@@ -2,7 +2,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Titolo");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Snake");
 
     while (window.isOpen())
     {
