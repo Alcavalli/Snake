@@ -1,5 +1,7 @@
 #include "Game.hpp"
 
+Game::Game() : window(sf::VideoMode(800, 600), "Snake") {}
+
 void Game::run()
 {
     while (window.isOpen())
@@ -15,6 +17,6 @@ void Game::run()
     }
 }
 
-void Game::processInput(){}
-void Game::update(){}
-void Game::render(){}
+void Game::processInput() {}
+void Game::update() {}
+void Game::render() {}
