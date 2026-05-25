@@ -25,5 +25,9 @@ void Game::processInput()
             window.close();
 }
 
+void Game::render()
+{
+    renderer.render(window);
+}
+
 void Game::update() {}
-void Game::render() {}
