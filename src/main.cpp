@@ -2,8 +2,8 @@
 
 int main()
 {
-    Game partita();
-    partita().run();
+    Game partita;
+    partita.run();
     /*
     while (window.isOpen())
     {
