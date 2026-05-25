@@ -14,3 +14,7 @@ void Game::run()
         render();
     }
 }
+
+void Game::processInput(){}
+void Game::update(){}
+void Game::render(){}
