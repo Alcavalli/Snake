@@ -6,7 +6,7 @@
 class Game
 {
     private:
-        sf::RenderWindow window;        // parametro delal finestra
+        sf::RenderWindow window;        // parametro della finestra
         Renderer renderer;              // oggetto di renderer
         void processInput();            // riceve l'input
         void update();                  // aggiorna la logica di gioco
