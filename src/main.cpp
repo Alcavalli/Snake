@@ -1,9 +1,6 @@
-#include <SFML/Graphics.hpp>
-
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Snake");
-
+    /*
     while (window.isOpen())
     {
         // 1. Input
@@ -19,7 +16,7 @@ int main()
         window.clear();
         // disegna cose
         window.display();
-    }
+    }*/
 
     return 0;
 }
