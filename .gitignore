@@ -1,0 +1,11 @@
+# Build
+build/
+cmake-build-debug/
+cmake-build-release/
+
+# Eseguibili Windows
+*.exe
+
+# CMake cache
+CMakeCache.txt
+CMakeFiles/
