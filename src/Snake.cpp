@@ -1,9 +1,20 @@
 #include "Snake.hpp"
 #include "Constants.hpp"
 
+Snake::Snake()
+{
+    corpo.push_back({Constants::COLS / 5 - 1, Constants::ROWS / 2});        // coda in (2,7) in questo caso
+    corpo.push_back({Constants::COLS / 5, Constants::ROWS / 2});            // corpo in (3,7)
+    corpo.push_back({Constants::COLS / 5 + 1, Constants::ROWS / 2});        // testa in (4,7)
+}
+
 const std::deque<sf::Vector2i>& Snake::getCorpo() const { return corpo; }
 
-void Snake::cambiaDir(Direzione nuova_dir) { this->dir = nuova_dir; }
+void Snake::cambiaDir(Direzione nuova_dir)
+{
+    if ((this->dir == Direzione::Su && nuova_dir != Direzione::Giu) || (this->dir == Direzione::Giu && nuova_dir != Direzione::Su) || (this->dir == Direzione::Destra && nuova_dir != Direzione::Sinistra) || (this->dir == Direzione::Sinistra && nuova_dir != Direzione::Destra))
+        this->dir = nuova_dir;
+}
 
 void Snake::aggiornaCorpo()
 {
