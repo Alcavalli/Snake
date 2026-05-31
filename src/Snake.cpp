@@ -3,9 +3,9 @@
 
 Snake::Snake()
 {
-    corpo.push_back({Constants::COLS / 5 - 1, Constants::ROWS / 2});        // coda in (2,7) in questo caso
-    corpo.push_back({Constants::COLS / 5, Constants::ROWS / 2});            // corpo in (3,7)
-    corpo.push_back({Constants::COLS / 5 + 1, Constants::ROWS / 2});        // testa in (4,7)
+    corpo.push_back({Constants::COLS / 5, Constants::ROWS / 2});        // coda in (3,7) in questo caso
+    corpo.push_back({Constants::COLS / 5 + 1, Constants::ROWS / 2});            // corpo in (4,7)
+    corpo.push_back({Constants::COLS / 5 + 2, Constants::ROWS / 2});        // testa in (5,7)
 }
 
 const std::deque<sf::Vector2i>& Snake::getCorpo() const { return corpo; }
