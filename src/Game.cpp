@@ -41,11 +41,13 @@ void Game::processInput()
 
 void Game::render()
 {
-    renderer.render(window, serpente, cibo);
+    renderer.render(window, serpente, cibo, stato);
 }
 
 void Game::update()
 {
+    if (stato == StatoGioco::GameOver)
+        return;
     sf::Time elapsed = clock.getElapsedTime();      // salva quanto tempo è passato da quando è partito l'orologio
     if (elapsed.asMilliseconds() >= Constants::MOVE_INTERVAL_MS)
     {

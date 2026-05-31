@@ -2,14 +2,7 @@
 
 #include <deque>
 #include <SFML/Graphics.hpp>
-
-enum class Direzione
-{
-    Su = 0,
-    Giu = 3,            // senza accento per evitare possibili errori
-    Destra = 1,
-    Sinistra = 2
-};
+#include "Enums.hpp"
 
 class Snake
 {

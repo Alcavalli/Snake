@@ -6,7 +6,7 @@ sf::Vector2f Renderer::toPixel(const sf::Vector2i& cella) const
     return sf::Vector2f(static_cast<float>(cella.x) * Constants::CELL_SIZE, static_cast<float>(cella.y) * Constants::CELL_SIZE);
 }
 
-void Renderer::render(sf::RenderWindow& window, const Snake& serpente, const Food& cibo)
+void Renderer::render(sf::RenderWindow& window, const Snake& serpente, const Food& cibo, const StatoGioco& stato)
 {
     // 1. Pulire la finestra
     window.clear();
