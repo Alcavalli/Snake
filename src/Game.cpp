@@ -27,7 +27,7 @@ void Game::processInput()
 
 void Game::render()
 {
-    renderer.render(window);
+    renderer.render(window, serpente, cibo);
 }
 
 void Game::update() {}

@@ -6,7 +6,7 @@ void Snake::cambiaDir(Direzione nuova_dir) { this->dir = nuova_dir; }
 
 void Snake::aggiornaCorpo()
 {
-    sf::Vector2i temp = corpo.back();
+    sf::Vector2i temp = corpo.back();       // .front() = coda, .back() = testa
     switch(dir)
     {
         case Direzione::Su:
