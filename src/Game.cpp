@@ -1,5 +1,5 @@
 #include "Game.hpp"
-#include "COnstants.hpp"
+#include "Constants.hpp"
 
 Game::Game() : window(sf::VideoMode(Constants::WINDOW_WIDTH, Constants::WINDOW_HEIGHT), "Snake") {}
 
