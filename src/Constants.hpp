@@ -12,4 +12,7 @@ namespace Constants
 
     // Cella
     constexpr int CELL_SIZE = WINDOW_WIDTH / COLS;      // ogni cella quadrata sarà 40x40 px
+
+    // Tempo per ogni frame
+    constexpr int MOVE_INTERVAL_MS = 250;
 }

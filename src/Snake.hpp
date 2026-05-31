@@ -5,10 +5,10 @@
 
 enum class Direzione
 {
-    Su,
-    Giu,            // senza accento per evitare possibili errori
-    Destra,
-    Sinistra
+    Su = 0,
+    Giu = 3,            // senza accento per evitare possibili errori
+    Destra = 1,
+    Sinistra = 2
 };
 
 class Snake

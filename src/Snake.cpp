@@ -12,7 +12,7 @@ const std::deque<sf::Vector2i>& Snake::getCorpo() const { return corpo; }
 
 void Snake::cambiaDir(Direzione nuova_dir)
 {
-    if ((this->dir == Direzione::Su && nuova_dir != Direzione::Giu) || (this->dir == Direzione::Giu && nuova_dir != Direzione::Su) || (this->dir == Direzione::Destra && nuova_dir != Direzione::Sinistra) || (this->dir == Direzione::Sinistra && nuova_dir != Direzione::Destra))
+    if (static_cast<int>(this->dir) + static_cast<int>(nuova_dir) != 3)             // guardare valori enum
         this->dir = nuova_dir;
 }
 

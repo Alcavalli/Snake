@@ -22,10 +22,15 @@ void Renderer::render(sf::RenderWindow& window, const Snake& serpente, const Foo
         {
             if ((i + j) % 2)     cella.setFillColor(sf::Color(18, 160, 215));
             else        cella.setFillColor(sf::Color(135, 224, 224));
-            cella.setPosition(toPixel({static_cast<float>(j), static_cast<float>(i)}));
+            cella.setPosition(toPixel({j,i}));
             window.draw(cella);
         }
     }
+
+    // Disegnare il cibo
+    cella.setFillColor(sf::Color(215, 5, 0));
+    cella.setPosition(toPixel(cibo.getPosizione()));
+    window.draw(cella);
 
     // Disegnare il serpente
     cella.setFillColor(sf::Color(6, 147, 0));
@@ -34,11 +39,6 @@ void Renderer::render(sf::RenderWindow& window, const Snake& serpente, const Foo
         cella.setPosition(toPixel(cella_serpente));      // inserisco ciascuna cella del serpente
         window.draw(cella);
     }
-
-    // Disegnare il cibo
-    cella.setFillColor(sf::Color(215, 5, 0));
-    cella.setPosition(toPixel(cibo.getPosizione()));
-    window.draw(cella);
 
     // 3. Mostrare il frame
     window.display();

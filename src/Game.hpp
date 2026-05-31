@@ -10,6 +10,7 @@ class Game
     private:
         sf::RenderWindow window;        // parametro della finestra
         Renderer renderer;              // oggetto di renderer
+        sf::Clock clock;                // orlogio per aggiornare i frame
         Snake serpente;                 // creazione serpente
         Food cibo;                      // creazione cibo
         void processInput();            // riceve l'input
