@@ -1,4 +1,5 @@
 #include "Snake.hpp"
+#include "Constants.hpp"
 
 const std::deque<sf::Vector2i>& Snake::getCorpo() const { return corpo; }
 
