@@ -20,11 +20,8 @@ Renderer::Renderer()
     testo_punteggio.setPosition(Constants::WINDOW_WIDTH / 2.f, Constants::WINDOW_HEIGHT / 2.f - 40.f);
 
     testo_restart.setFont(font);
-    testo_restart.setString("Premere un tasto per ricominciare...");
     testo_restart.setCharacterSize(20);
     testo_restart.setFillColor(sf::Color::White);
-    sf::FloatRect bounds_restart = testo_restart.getLocalBounds();
-    testo_restart.setOrigin(bounds_restart.left + bounds_restart.width / 2.f, bounds_restart.top + bounds_restart.height / 2.f);
     testo_restart.setPosition(Constants::WINDOW_WIDTH / 2.f, Constants::WINDOW_HEIGHT / 2.f + 50.f);
 }
 
@@ -71,6 +68,20 @@ void Renderer::render(sf::RenderWindow& window, const Snake& serpente, const Foo
 
     if (stato == StatoGioco::GameOver)
     {
+        sf::Time elapsed = lampeggio.getElapsedTime();
+        if (elapsed.asMilliseconds() >= Constants::LAMPEGGIO_MS)
+        {
+            if (visibile)
+            {
+                testo_restart.setString("Premere un tasto per ricominciare...");
+                sf::FloatRect bounds_restart = testo_restart.getLocalBounds();
+                testo_restart.setOrigin(bounds_restart.left + bounds_restart.width / 2.f, bounds_restart.top + bounds_restart.height / 2.f);
+            }
+            else    testo_restart.setString("");
+            visibile = !visibile;
+            lampeggio.restart();
+        }
+
         testo_punteggio.setString("Hai totalizzato " + std::to_string(serpente.getCorpo().size() - 3) + " punti");
         sf::FloatRect bounds_punteggio = testo_punteggio.getLocalBounds();
         testo_punteggio.setOrigin(bounds_punteggio.left + bounds_punteggio.width / 2.f, bounds_punteggio.top + bounds_punteggio.height / 2.f);

@@ -10,6 +10,8 @@ class Renderer
     private:
         sf::Font font;
         sf::Text testo_end, testo_restart, testo_punteggio;
+        sf::Clock lampeggio;
+        bool visibile{};
     public:
         Renderer();         // serve per il font
         void render(sf::RenderWindow& window, const Snake& serpente, const Food& cibo, const StatoGioco& stato);      // aggiorna ogni volta la finestra, ci serve passare anche il serpente e il cibo
