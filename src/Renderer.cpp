@@ -17,8 +17,6 @@ Renderer::Renderer()
     testo_punteggio.setFont(font);
     testo_punteggio.setCharacterSize(25);
     testo_punteggio.setFillColor(sf::Color::Black);
-    sf::FloatRect bounds_punteggio = testo_punteggio.getLocalBounds();
-    testo_punteggio.setOrigin(bounds_punteggio.left + bounds_punteggio.width / 2.f, bounds_punteggio.top + bounds_punteggio.height / 2.f);
     testo_punteggio.setPosition(Constants::WINDOW_WIDTH / 2.f, Constants::WINDOW_HEIGHT / 2.f - 30.f);
 
     testo_restart.setFont(font);
@@ -74,6 +72,8 @@ void Renderer::render(sf::RenderWindow& window, const Snake& serpente, const Foo
 
     if (stato == StatoGioco::GameOver)
     {
+        sf::FloatRect bounds_punteggio = testo_punteggio.getLocalBounds();
+        testo_punteggio.setOrigin(bounds_punteggio.left + bounds_punteggio.width / 2.f, bounds_punteggio.top + bounds_punteggio.height / 2.f);
         testo_punteggio.setString("Hai totalizzato " + std::to_string(serpente.getCorpo().size() - 3) + " punti");
         window.draw(testo_end);
         window.draw(testo_punteggio);
