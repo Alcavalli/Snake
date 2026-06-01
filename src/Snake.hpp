@@ -13,5 +13,6 @@ class Snake
         Snake();
         void cambiaDir(Direzione nuova_dir);
         void aggiornaCorpo();
+        void cresci();
         const std::deque<sf::Vector2i>& getCorpo() const;       // il primo const indica che la deque restituita non può essere modifica, il secondo assicura che nel metodo non venga modificato alcun elemento della classe Snake (buona prassi per tutti i getter)
 };

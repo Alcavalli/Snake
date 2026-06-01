@@ -51,7 +51,15 @@ void Game::update()
     sf::Time elapsed = clock.getElapsedTime();      // salva quanto tempo è passato da quando è partito l'orologio
     if (elapsed.asMilliseconds() >= Constants::MOVE_INTERVAL_MS)
     {
-        serpente.aggiornaCorpo();       // aggiorna il corpo del serpente (lo fa muovere)
+        if (serpente.getCorpo().back() == cibo.getPosizione())
+        {
+            serpente.cresci();
+            cibo.respawn(serpente.getCorpo());
+        }
+        else
+            serpente.aggiornaCorpo();
+        if (serpente.getCorpo().back().x < 0 || serpente.getCorpo().back().x > Constants::COLS - 1 || serpente.getCorpo().back().y < 0 || serpente.getCorpo().back().y > Constants::ROWS - 1)
+            stato = StatoGioco::GameOver;
         clock.restart();        // resetta l'orologio
     }
 }

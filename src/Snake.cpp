@@ -37,3 +37,10 @@ void Snake::aggiornaCorpo()
     corpo.push_back(temp);
     corpo.pop_front();
 }
+
+void Snake::cresci()
+{
+    sf::Vector2i temp{corpo.front()};
+    aggiornaCorpo();
+    corpo.push_front(temp);
+}

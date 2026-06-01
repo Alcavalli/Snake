@@ -54,12 +54,15 @@ void Renderer::render(sf::RenderWindow& window, const Snake& serpente, const Foo
     window.draw(cella);
 
     // Disegnare il serpente
-    cella.setFillColor(sf::Color(6, 147, 0));
+    cella.setFillColor(sf::Color(0, 150, 0));
     for (const auto& cella_serpente : serpente.getCorpo())
     {    
         cella.setPosition(toPixel(cella_serpente));      // inserisco ciascuna cella del serpente
         window.draw(cella);
     }
+    cella.setFillColor(sf::Color(0, 125, 0));
+    cella.setPosition(toPixel(serpente.getCorpo().back()));
+    window.draw(cella);
 
     if (stato == StatoGioco::GameOver)
     {
