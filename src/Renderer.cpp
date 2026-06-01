@@ -1,3 +1,4 @@
+#include <string>
 #include "Renderer.hpp"
 #include "Constants.hpp"
 
@@ -13,9 +14,16 @@ Renderer::Renderer()
     testo_end.setOrigin(bounds_end.left + bounds_end.width / 2.f, bounds_end.top + bounds_end.height / 2.f);
     testo_end.setPosition(Constants::WINDOW_WIDTH / 2.f, Constants::WINDOW_HEIGHT / 2.f);
 
+    testo_punteggio.setFont(font);
+    testo_punteggio.setCharacterSize(25);
+    testo_punteggio.setFillColor(sf::Color::Black);
+    sf::FloatRect bounds_punteggio = testo_punteggio.getLocalBounds();
+    testo_punteggio.setOrigin(bounds_punteggio.left + bounds_punteggio.width / 2.f, bounds_punteggio.top + bounds_punteggio.height / 2.f);
+    testo_punteggio.setPosition(Constants::WINDOW_WIDTH / 2.f, Constants::WINDOW_HEIGHT / 2.f - 30.f);
+
     testo_restart.setFont(font);
     testo_restart.setString("Premere un tasto per ricominciare...");
-    testo_restart.setCharacterSize(25);
+    testo_restart.setCharacterSize(20);
     testo_restart.setFillColor(sf::Color::White);
     sf::FloatRect bounds_restart = testo_restart.getLocalBounds();
     testo_restart.setOrigin(bounds_restart.left + bounds_restart.width / 2.f, bounds_restart.top + bounds_restart.height / 2.f);
@@ -66,7 +74,9 @@ void Renderer::render(sf::RenderWindow& window, const Snake& serpente, const Foo
 
     if (stato == StatoGioco::GameOver)
     {
+        testo_punteggio.setString("Hai totalizzato " + std::to_string(serpente.getCorpo().size() - 3) + " punti");
         window.draw(testo_end);
+        window.draw(testo_punteggio);
         window.draw(testo_restart);
     }
 
