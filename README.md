@@ -28,5 +28,7 @@ cmake --build .
 
 ## Struttura
 
+```
 src/        # sorgenti e header
 assets/     # font e risorse grafiche
+```

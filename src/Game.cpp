@@ -81,4 +81,5 @@ void Game::reset()
     serpente = Snake();
     cibo = Food();
     stato = StatoGioco::InCorso;
+    coda_input = std::queue<Direzione>();           // resetta la coda di input con una queue vuota
 }

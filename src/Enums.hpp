@@ -8,8 +8,8 @@ enum class StatoGioco
 
 enum class Direzione
 {
-    Su = 0,
-    Giu = 3,            // senza accento per evitare possibili errori
-    Destra = 1,
-    Sinistra = 2
+    Su,
+    Giu,            // senza accento per evitare possibili errori
+    Destra,
+    Sinistra
 };

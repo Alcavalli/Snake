@@ -1,10 +1,13 @@
 #include <string>
+#include <stdexcept>
 #include "Renderer.hpp"
 #include "Constants.hpp"
 
 Renderer::Renderer()
 {
     font.loadFromFile("assets/font.ttf");              // carica il file
+    if (!font.loadFromFile("assets/font.ttf"))
+        throw std::runtime_error("Errore: font non trovato in assets/font.ttf");
 
     testo_end.setFont(font);
     testo_end.setString("GAME OVER");
