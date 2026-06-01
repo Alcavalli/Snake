@@ -23,10 +23,10 @@ void Game::processInput()
     sf::Event event;
     while (window.pollEvent(event))
     {
-        if (stato == StatoGioco::GameOver && event.type == sf::Event::KeyPressed)
-            reset();
         if (event.type == sf::Event::KeyPressed)
         {
+            if (stato == StatoGioco::GameOver)
+                reset();
             if (event.key.code == sf::Keyboard::Up)
                 serpente.cambiaDir(Direzione::Su);
             if (event.key.code == sf::Keyboard::Down)
@@ -61,6 +61,8 @@ void Game::update()
         else
             serpente.aggiornaCorpo();
         if (serpente.getCorpo().back().x < 0 || serpente.getCorpo().back().x > Constants::COLS - 1 || serpente.getCorpo().back().y < 0 || serpente.getCorpo().back().y > Constants::ROWS - 1)
+            stato = StatoGioco::GameOver;
+        if (std::find(serpente.getCorpo().begin(), serpente.getCorpo().end(), serpente.getCorpo().back()) != serpente.getCorpo().end() - 1)
             stato = StatoGioco::GameOver;
         clock.restart();        // resetta l'orologio
     }
