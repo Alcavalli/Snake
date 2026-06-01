@@ -23,6 +23,8 @@ void Game::processInput()
     sf::Event event;
     while (window.pollEvent(event))
     {
+        if (stato == StatoGioco::GameOver && event.type == sf::Event::KeyPressed)
+            reset();
         if (event.type == sf::Event::KeyPressed)
         {
             if (event.key.code == sf::Keyboard::Up)
@@ -62,4 +64,11 @@ void Game::update()
             stato = StatoGioco::GameOver;
         clock.restart();        // resetta l'orologio
     }
+}
+
+void Game::reset()
+{
+    serpente = Snake();
+    cibo = Food();
+    stato = StatoGioco::InCorso;
 }

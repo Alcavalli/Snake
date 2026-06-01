@@ -18,6 +18,7 @@ class Game
         void processInput();                        // riceve l'input
         void update();                              // aggiorna la logica di gioco
         void render();                              // aggiorna la renderer
+        void reset();
     public:
         Game();                                     // costruttore
         void run();                                 // fa girare il gioco
