@@ -17,7 +17,7 @@ Renderer::Renderer()
     testo_punteggio.setFont(font);
     testo_punteggio.setCharacterSize(25);
     testo_punteggio.setFillColor(sf::Color::Black);
-    testo_punteggio.setPosition(Constants::WINDOW_WIDTH / 2.f, Constants::WINDOW_HEIGHT / 2.f - 30.f);
+    testo_punteggio.setPosition(Constants::WINDOW_WIDTH / 2.f, Constants::WINDOW_HEIGHT / 2.f - 40.f);
 
     testo_restart.setFont(font);
     testo_restart.setString("Premere un tasto per ricominciare...");
@@ -63,18 +63,17 @@ void Renderer::render(sf::RenderWindow& window, const Snake& serpente, const Foo
     cella.setFillColor(sf::Color(0, 150, 0));
     for (const auto& cella_serpente : serpente.getCorpo())
     {    
+        if (cella_serpente == serpente.getCorpo().back())
+            cella.setFillColor(sf::Color(0, 125, 0));
         cella.setPosition(toPixel(cella_serpente));      // inserisco ciascuna cella del serpente
         window.draw(cella);
     }
-    cella.setFillColor(sf::Color(0, 125, 0));
-    cella.setPosition(toPixel(serpente.getCorpo().back()));
-    window.draw(cella);
 
     if (stato == StatoGioco::GameOver)
     {
+        testo_punteggio.setString("Hai totalizzato " + std::to_string(serpente.getCorpo().size() - 3) + " punti");
         sf::FloatRect bounds_punteggio = testo_punteggio.getLocalBounds();
         testo_punteggio.setOrigin(bounds_punteggio.left + bounds_punteggio.width / 2.f, bounds_punteggio.top + bounds_punteggio.height / 2.f);
-        testo_punteggio.setString("Hai totalizzato " + std::to_string(serpente.getCorpo().size() - 3) + " punti");
         window.draw(testo_end);
         window.draw(testo_punteggio);
         window.draw(testo_restart);
