@@ -13,3 +13,5 @@ find_package(SFML 2.6 COMPONENTS graphics REQUIRED)     # cerca SFML e caricaci 
 add_executable(main src/main.cpp src/Game.cpp src/Food.cpp src/Snake.cpp src/Renderer.cpp)      # qui vanno tutti i .cpp
 
 target_link_libraries(main PRIVATE sfml-graphics)       # quando compila main usa anche SFML
+
+file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})           # ogni volta che viene eseguito build chiama in automatico il font in assets

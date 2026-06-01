@@ -1,6 +1,27 @@
 #include "Renderer.hpp"
 #include "Constants.hpp"
 
+Renderer::Renderer()
+{
+    font.loadFromFile("assets/font.ttf");              // carica il file
+
+    testo_end.setFont(font);
+    testo_end.setString("GAME OVER");
+    testo_end.setCharacterSize(60);
+    testo_end.setFillColor(sf::Color::Red);
+    sf::FloatRect bounds_end = testo_end.getLocalBounds();
+    testo_end.setOrigin(bounds_end.left + bounds_end.width / 2.f, bounds_end.top + bounds_end.height / 2.f);
+    testo_end.setPosition(Constants::WINDOW_WIDTH / 2.f, Constants::WINDOW_HEIGHT / 2.f);
+
+    testo_restart.setFont(font);
+    testo_restart.setString("Premere un tasto per ricominciare...");
+    testo_restart.setCharacterSize(25);
+    testo_restart.setFillColor(sf::Color::White);
+    sf::FloatRect bounds_restart = testo_restart.getLocalBounds();
+    testo_restart.setOrigin(bounds_restart.left + bounds_restart.width / 2.f, bounds_restart.top + bounds_restart.height / 2.f);
+    testo_restart.setPosition(Constants::WINDOW_WIDTH / 2.f, Constants::WINDOW_HEIGHT / 2.f + 50.f);
+}
+
 sf::Vector2f Renderer::toPixel(const sf::Vector2i& cella) const
 {
     return sf::Vector2f(static_cast<float>(cella.x) * Constants::CELL_SIZE, static_cast<float>(cella.y) * Constants::CELL_SIZE);
@@ -38,6 +59,12 @@ void Renderer::render(sf::RenderWindow& window, const Snake& serpente, const Foo
     {    
         cella.setPosition(toPixel(cella_serpente));      // inserisco ciascuna cella del serpente
         window.draw(cella);
+    }
+
+    if (stato == StatoGioco::GameOver)
+    {
+        window.draw(testo_end);
+        window.draw(testo_restart);
     }
 
     // 3. Mostrare il frame
